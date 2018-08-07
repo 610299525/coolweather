@@ -1,6 +1,7 @@
 package www.wocaring.com.coolweather;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Build;
@@ -28,6 +29,7 @@ import okhttp3.Callback;
 import okhttp3.Response;
 import www.wocaring.com.coolweather.gson.Forecast;
 import www.wocaring.com.coolweather.gson.Weather;
+import www.wocaring.com.coolweather.service.AutoUpdateService;
 import www.wocaring.com.coolweather.util.HttpUtil;
 import www.wocaring.com.coolweather.util.Utility;
 
@@ -208,6 +210,8 @@ public class WeatherActivity extends AppCompatActivity {
         carWashText.setText(carWash);
         sportText.setText(sport);
         weatherLayout.setVisibility(View.VISIBLE);
+        Intent intent=new Intent(this, AutoUpdateService.class);
+        startService(intent);
     }
 
 
